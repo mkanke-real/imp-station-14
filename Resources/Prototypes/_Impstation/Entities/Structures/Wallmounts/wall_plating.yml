@@ -1,0 +1,121 @@
+- type: entity
+  parent: BaseStructure
+  id: BaseWallPlating
+  name: wallpaper
+  description: A secure and snazzy addition to your walls.
+  abstract: true
+  placement:
+    mode: SnapgridCenter
+  components:
+  - type: WallMount
+    arc: 360
+  - type: Sprite
+    drawdepth: Objects
+    sprite: Structures/Walls/solid.rsi
+  - type: Icon
+    sprite: Structures/Walls/solid.rsi
+    state: full
+  - type: IconSmooth
+    key: walls
+    base: solid
+  - type: Appearance
+  - type: GenericVisualizer
+    visuals:
+      enum.PaintableVisuals.Prototype:
+        platingPaintMap:
+          BaseWallPlating: { state: full, sprite: Structures/Walls/solid.rsi }
+          WallPlatingWhite: { state: full, sprite: _Impstation/Structures/Wallmounts/wall_plating.rsi }
+          WallPlatingPink: { state: full, sprite: _Impstation/Structures/Wallmounts/wall_plating.rsi }
+          WallPlatingBlue: { state: full, sprite: _Impstation/Structures/Wallmounts/wall_plating.rsi }
+  - type: Paintable
+    group: Wallplating
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.45,-0.45,0.45,0.45"
+        mask:
+        - FullTileMask
+        layer:
+        - WallLayer
+        density: 100
+  - type: Damageable
+    damageContainer: StructuralInorganic
+    damageModifierSet: Metallic
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 10
+      behaviors:
+      - !type:PlaySoundBehavior
+        sound:
+          path: /Audio/Effects/poster_broken.ogg
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+      - !type:SpawnEntitiesBehavior
+        spawn:
+          SheetSteel1:
+            min: 1
+            max: 1
+
+# Plating colors
+
+- type: entity
+  id: WallPlatingPlain
+  parent: BaseWallPlating
+  name: steel wall plating
+  components:
+  - type: Construction
+    graph: WallPlatingGraph
+    node: start
+
+- type: entity
+  id: WallPlatingWhite
+  parent: BaseWallPlating
+  name: white wall plating
+  components:
+  - type: Sprite
+    drawdepth: Objects
+    sprite: _Impstation/Structures/Wallmounts/wall_plating.rsi
+    state: full
+  - type: Icon
+    sprite: _Impstation/Structures/Wallmounts/wall_plating.rsi
+    state: full
+
+- type: entity
+  id: WallPlatingPink
+  parent: BaseWallPlating
+  name: pink wall plating
+  components:
+  - type: Sprite
+    drawdepth: Objects
+    sprite: _Impstation/Structures/Wallmounts/wall_plating.rsi
+    state: full
+    color: "#e670b5"
+  - type: Icon
+    sprite: _Impstation/Structures/Wallmounts/wall_plating.rsi
+    state: full
+    color: "#e670b5"
+  - type: IconSmooth
+    key: walls
+    base: solid
+
+- type: entity
+  id: WallPlatingBlue
+  parent: BaseWallPlating
+  name: blue wall plating
+  components:
+  - type: Sprite
+    drawdepth: Objects
+    sprite: _Impstation/Structures/Wallmounts/wall_plating.rsi
+    state: full
+    color: "#0099FF"
+  - type: Icon
+    sprite: _Impstation/Structures/Wallmounts/wall_plating.rsi
+    state: full
+    color: "#0099FF"
+  - type: IconSmooth
+    key: walls
+    base: solid

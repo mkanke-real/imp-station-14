@@ -1,0 +1,9 @@
+- type: paintableGroup
+  cost: 1
+  id: Wallplating
+  defaultStyle: plain
+  styles:
+    plain: WallPlatingPlain
+    white: WallPlatingWhite
+    pink: WallPlatingPink
+    blue: WallPlatingBlue

@@ -180,3 +180,14 @@
   canBuildInImpassable: false
   conditions:
   - !type:TileNotBlocked
+
+- type: construction
+  id: WallPlatingConstruct
+  graph: WallPlatingGraph
+  startNode: start
+  targetNode: wallPlating
+  category: construction-category-structures
+  objectType: Structure
+  placementMode: SnapgridCenter
+  canRotate: true
+  canBuildInImpassable: true

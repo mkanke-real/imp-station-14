@@ -69,4 +69,11 @@ spray-painter-style-locker-zookeeper = Zookeeper
 
 spray-painter-style-closet-business = Business
 
+#Wall Platings
 
+spray-painter-tab-category-wallplatings = Wall Plating
+
+spray-painter-style-wallplating-plain = Plain Steel
+spray-painter-style-wallplating-white = White
+spray-painter-style-wallplating-pink = Pink
+spray-painter-style-wallplating-blue = Blue
